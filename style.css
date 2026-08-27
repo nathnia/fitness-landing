@@ -1,0 +1,51 @@
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 70px;
+}
+
+[data-reveal] {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .7s ease, transform .7s ease;
+}
+
+[data-reveal].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.marquee {
+    animation: marquee 60s linear infinite;
+    width: max-content;
+}
+
+.clip-corner::after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    width: 48px;
+    height: 48px;
+    background: #000;
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+    border-top-right-radius: 0.75rem;
+}
+
+.nav-link {
+    opacity: .8;
+    transition: opacity .2s ease;
+}
+
+.nav-link.active {
+    opacity: 1;
+}
